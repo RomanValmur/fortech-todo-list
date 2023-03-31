@@ -1,6 +1,6 @@
-import './TodoList.scss';
 import { useDrop } from 'react-dnd';
 import { List, ListSubheader } from '@mui/material';
+import './TodoList.scss';
 
 export default function TodoList({
   children,
@@ -9,14 +9,16 @@ export default function TodoList({
   onDrop,
   backgroundColor,
 }) {
-  const [{ isOver }, drop] = useDrop(() => ({
-    accept: 'todo',
-    drop: (item) => onDrop(item.id, period),
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      dropItem: monitor.getItemType(),
+  const [{ isOver }, drop] = useDrop(
+    () => ({
+      accept: 'todo',
+      drop: (item) => onDrop(item.id, period),
+      collect: (monitor) => ({
+        isOver: monitor.isOver(),
+      }),
     }),
-  }));
+    [children]
+  );
 
   return (
     <List
