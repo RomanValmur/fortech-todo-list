@@ -1,0 +1,34 @@
+.todo {
+  overflow: hidden;
+
+  &__container {
+    height: 100vh;
+  }
+
+  &__todos-list {
+    overflow-y: scroll;
+    max-height: calc(100vh - 16px);
+    padding: 0;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: rgb(231, 231, 231);
+    }
+
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: #fff;
+    }
+  }
+}
+
+.new-todo {
+  &__button-group {
+    margin: 16px 0;
+  }
+}
